@@ -8,5 +8,5 @@ Projeto realizado seguindo a live "Reconstruindo um aplicativo bancário com Kot
 
 
 
-<img src="./github img/image-20210504212606548.PNG">
+<img src="./github img/image-20210504212606548.png">
 
