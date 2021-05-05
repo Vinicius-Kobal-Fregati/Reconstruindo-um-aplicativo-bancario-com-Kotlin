@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#ebeae8">
+    <!--Por o layout_width e layout_height possuírem  match_parent, ele fica centralizado-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_toolbar"
+        android:background="#ffffff"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!--
+        Cl seria constraint layout
+        Criamos uma "caixa" apenas para essa parte de superior, essa seria nossa própria toolbar, visto que tiramos a inicial no manifest. -->
+
+        <TextView
+            android:id="@+id/tv_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="olá, Pedro"
+            android:textColor="#ed6f05"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_conta"
+            android:text="Ag: 3300 Conta: 007821"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            app:layout_constraintTop_toBottomOf="@+id/tv_usuario"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--O id tv_title e tv_usuario possuem o tv por serem um TextView, facilitando assim o entendimento do que são.
+    Com os contraint nós alteramos o alinhamento
+    A princípio, o texto está sendo escrito aqui no próprio xml, altere depois utilizando values e strings-->
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textColor="#ed6f05"
+        android:textSize="26sp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:text="nossos serviços"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_toolbar"
+        android:layout_marginLeft="12dp" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textColor="#333333"
+        android:textSize="26sp"
+        android:text="disponíveis para você"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_title" />
+    <!--Atualmente, no lugar de left e right, utilizamos start e end, visto que existem países que a orientação é contrária, assim padronizamos a orientação-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        app:spanCount="2"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_menu"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <!--Temos nossa lista!!
+    No spanCount, dizemos quantas colunas teremos em cada linha.
+    Vamos inserir o valor dela pelo próprio arquivo kt.
+    O 0dp no width e height o torna flexível quanto a altura e largura, assim ele se configura para cada tamanhoo de tela.
+    O id possui o rv por conta de ser um RecyclerView, isso facilita a identificação no futuro.
+    Usamos o tools da linha 80 para visualizarmos como o usuário veria, sem precisarmos rodar o emulador, ou dispositivo físico.
+    -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

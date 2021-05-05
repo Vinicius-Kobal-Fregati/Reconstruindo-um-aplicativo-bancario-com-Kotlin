@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="3dp">
+    <!--
+    Na linha 2, com o cadview, criamos um card (retângulo).
+    Na linha 7, damos uma margem em todas as direções, para espaçarmos um card do outro.
+    Na linha 8, declaramos a elevação do card, isto influência a sombra que ele terá.
+    Na linha 9, cornerRadius, definimos uma borda para nosso card.
+    -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="16dp">
+        <!--Adicionamos um padding de 16 e colocamos um tamanho fixo de 100dp, cuidado com os tamanhos fixos pois eles podem não ser bem visualizados em diferentes dispositivos. -->
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="cartões"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <!--Tools só modifica  a visualização no modo desenvolvimento, ou seja, o usuário real não veria isto.-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
